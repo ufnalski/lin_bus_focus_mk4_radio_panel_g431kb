@@ -4,7 +4,11 @@ The part number is [JX7T-18K811-CC](https://allegro.pl/listing?string=JX7T-18K81
 ![Ford Focus Mk4 radio panel in action](/Assets/Images/focus_mk4_radio_panel_in_action.jpg)
 ![Ford Focus Mk4 radio panel PCB](/Assets/Images/focus_mk4_radio_panel_pcb.jpg)
 ![Ford Focus Mk4 radio panel frames](/Assets/Images/focus_mk4_radio_panel_lin_bus_scan.JPG)
-![Ford Focus Mk4 radio panel serial monitor](/Assets/Images/focus_mk4_radio_panel_tabby.JPG)
+
+Undervoltage:
+![Ford Focus Mk4 radio panel serial monitor - undervoltage warning](/Assets/Images/focus_mk4_radio_panel_tabby.JPG)
+Voltage OK:
+![Ford Focus Mk4 radio panel serial monitor - voltage OK](/Assets/Images/focus_mk4_radio_panel_tabby_voltage_ok.JPG)
 
 > [!NOTE]
 > The radio panel is able to synchronize at 9600 baud as well as 10400 baud. I don't have the master device to verify its native baud rate. The Google AI Overview suggests that 9600 is used in some Ford cars, whereas 10400 is present in some Opel models. 

@@ -310,18 +310,26 @@ int main(void)
 		{
 			lin_data_received_flag = 0;
 			OledSoftTimer = HAL_GetTick();
-			sprintf(lcd_line, "TX: 0b"BYTE_TO_BINARY_PATTERN,
-					BYTE_TO_BINARY(backlight_intensity));
+			sprintf(lcd_line, "T: 0b"BYTE_TO_BINARY_PATTERN" %02X %02X",
+					BYTE_TO_BINARY(txData[2]), txData[3], txData[4]);
 			ssd1306_SetCursor(2, 33);
 			ssd1306_WriteString(lcd_line, Font_6x8, White);
 			ssd1306_SetCursor(2, 44);
-			ssd1306_WriteString("RX:", Font_6x8, White);
-			sprintf(lcd_line, " %02X%02X %02X%02X %02X%02X %02X%02X",
+			sprintf(lcd_line, "R: %02X%02X%02X%02X %02X%02X%02X%02X",
 					rxDataBbis[3], rxDataBbis[4], rxDataBbis[5], rxDataBbis[6],
 					rxDataBbis[7], rxDataBbis[8], rxDataBbis[9],
 					rxDataBbis[10]);
-			ssd1306_SetCursor(2, 55);
 			ssd1306_WriteString(lcd_line, Font_6x8, White);
+			ssd1306_SetCursor(2, 55);
+			// undervoltage warning
+			if (rxDataBbis[3] == 0x04)
+			{
+				ssd1306_WriteString("Low voltage warning!", Font_6x8, White);
+			}
+			else
+			{
+				ssd1306_WriteString("Voltage OK :)         ", Font_6x8, White);
+			}
 			ssd1306_UpdateScreen();
 		}
 
